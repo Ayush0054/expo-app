@@ -73,7 +73,7 @@
 import React, { useState } from "react";
 import { View, TextInput, TouchableOpacity, Text, Image } from "react-native";
 
-import { arr, isl_gif } from "./textImage";
+import { arr, isl_gif } from "../assets/images/textImage";
 
 // Adjust the path accordingly
 
