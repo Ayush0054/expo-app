@@ -1,9 +1,23 @@
 import { ImageSourcePropType } from "react-native";
 
 export const isl_gif = [
-  // 'are you angry',
-  // 'are you busy',
-  // 'are you hungry',
+  {
+    name: "address",
+    value: require("./assets/images/address.gif"),
+  },
+  {
+    name: "are you angry",
+    value: require("./assets/images/are-you-angry.gif"),
+  },
+  {
+    name: "are you busy",
+    value: require("./assets/images/are-you-busy.gif"),
+  },
+  {
+    name: "are you hungry",
+    value: require("./assets/images/are-you-hungry.gif"),
+  },
+  {},
   // 'are you sick',
   // 'be careful',
   // 'can we meet tomorrow',
@@ -164,18 +178,34 @@ export const isl_gif = [
   // 'what are you doing',
   // 'are you busy',
 ];
-// .map(item => {
-//   return {
-//     name: item,
-//     value: `/assets/images/${item}.gif`,
-//   };
-// });
 
 export const arr = [
-  { name: a, value: require("/assets/letters/a.jpg") },
-  { name: b, value: require("/assets/letters/b.jpg") },
-  { name: c, value: require("/assets/letters/c.jpg") },
-
+  { name: "a", value: require("./assets/letters/a.jpg") },
+  { name: "b", value: require("./assets/letters/b.jpg") },
+  { name: "c", value: require("./assets/letters/c.jpg") },
+  { name: "d", value: require("./assets/letters/d.jpg") },
+  { name: "e", value: require("./assets/letters/e.jpg") },
+  { name: "f", value: require("./assets/letters/f.jpg") },
+  { name: "g", value: require("./assets/letters/g.jpg") },
+  { name: "h", value: require("./assets/letters/h.jpg") },
+  { name: "i", value: require("./assets/letters/i.jpg") },
+  { name: "j", value: require("./assets/letters/j.jpg") },
+  { name: "k", value: require("./assets/letters/k.jpg") },
+  { name: "l", value: require("./assets/letters/l.jpg") },
+  { name: "m", value: require("./assets/letters/m.jpg") },
+  { name: "n", value: require("./assets/letters/n.jpg") },
+  { name: "o", value: require("./assets/letters/o.jpg") },
+  { name: "p", value: require("./assets/letters/p.jpg") },
+  { name: "q", value: require("./assets/letters/q.jpg") },
+  { name: "r", value: require("./assets/letters/r.jpg") },
+  { name: "s", value: require("./assets/letters/s.jpg") },
+  { name: "t", value: require("./assets/letters/t.jpg") },
+  { name: "u", value: require("./assets/letters/u.jpg") },
+  { name: "v", value: require("./assets/letters/v.jpg") },
+  { name: "w", value: require("./assets/letters/w.jpg") },
+  { name: "x", value: require("./assets/letters/x.jpg") },
+  { name: "y", value: require("./assets/letters/y.jpg") },
+  { name: "z", value: require("./assets/letters/z.jpg") },
   // 'a',
   // 'b',
   // 'c',
@@ -203,9 +233,3 @@ export const arr = [
   // 'y',
   // 'z',
 ];
-// .map((letter: any) => {
-//   return {
-//     name: letter,
-//     value: `/assets/images/${letter}.jpg`,
-//   };
-// });

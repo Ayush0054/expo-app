@@ -71,9 +71,18 @@
 
 // export default Offline;
 import React, { useState } from "react";
-import { View, TextInput, TouchableOpacity, Text, Image } from "react-native";
+import {
+  View,
+  TextInput,
+  TouchableOpacity,
+  Text,
+  Image,
+  StyleSheet,
+  ScrollView,
+} from "react-native";
+import { arr, isl_gif } from "../textImage";
 
-import { arr, isl_gif } from "../assets/images/textImage";
+// import { arr, isl_gif } from "./textImage";
 
 // Adjust the path accordingly
 
@@ -116,7 +125,8 @@ const Offline = () => {
   };
 
   return (
-    <View style={{ margin: 100 }}>
+    <View style={{ marginTop: 40, padding: 20 }}>
+      <Text style={styles.headingText}>Disability Bridge</Text>
       <TextInput
         value={textInput}
         onChangeText={handleTextInput}
@@ -125,19 +135,33 @@ const Offline = () => {
       <TouchableOpacity onPress={handleSubmit}>
         <Text>Submit</Text>
       </TouchableOpacity>
-      {Array.isArray(imagePath1) && imagePath1.length > 0
-        ? imagePath1.map((path, index) => (
-            <Image
-              key={index}
-              source={path}
-              style={{ width: 200, height: 200 }}
-            />
-          ))
-        : imagePath1 && (
-            <Image source={imagePath1} style={{ width: 200, height: 200 }} />
-          )}
+      <ScrollView scrollEnabled horizontal={true}>
+        {Array.isArray(imagePath1) && imagePath1.length > 0
+          ? imagePath1.map((path, index) => (
+              <Image
+                key={index}
+                source={path}
+                style={{ width: 300, height: 240, margin: 10 }}
+              />
+            ))
+          : imagePath1 && (
+              <Image source={imagePath1} style={{ height: 200, width: 350 }} />
+            )}
+      </ScrollView>
     </View>
   );
 };
 
 export default Offline;
+const styles = StyleSheet.create({
+  headingText: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#000000",
+    paddingHorizontal: 20,
+    paddingVertical: 30,
+    justifyContent: "center",
+    // flex: 1,
+    alignItems: "center",
+  },
+});
