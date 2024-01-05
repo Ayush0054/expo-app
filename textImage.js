@@ -17,166 +17,382 @@ export const isl_gif = [
     name: "are you hungry",
     value: require("./assets/images/are-you-hungry.gif"),
   },
-  {},
-  // 'are you sick',
-  // 'be careful',
-  // 'can we meet tomorrow',
-  // 'did you book tickets',
-  // 'did you finish homework',
-  // 'do you go to office',
-  // 'do you have money',
-  // 'do you want something to drink',
-  // 'do you want tea or coffee',
-  // 'do you watch TV',
-  // 'dont worry',
-  // 'flower is beautiful',
-  // 'good afternoon',
-  // 'good evening',
-  // 'good morning',
-  // 'good night',
-  // 'good question',
-  // 'had your lunch',
-  // 'happy journey',
-  // 'hello what is your name',
-  // 'how many people are there in your family',
-  // 'i am a clerk',
-  // 'i am bore doing nothing',
-  // 'i am fine',
-  // 'i am sorry',
-  // 'i am thinking',
-  // 'i am tired',
-  // 'i dont understand anything',
-  // 'i go to a theatre',
-  // 'i love to shop',
-  // 'i had to say something but I forgot',
-  // 'i have headache',
-  // 'i like pink colour',
-  // 'i live in nagpur',
-  // 'lets go for lunch',
-  // 'my mother is a homemaker',
-  // 'my name is john',
-  // 'nice to meet you',
-  // 'no smoking please',
-  // 'open the door',
-  // 'please call me later',
-  // 'please clean the room',
-  // 'please give me your pen',
-  // 'please use dustbin dont throw garbage',
-  // 'please wait for sometime',
-  // 'shall I help you',
-  // 'shall we go together tommorow',
-  // 'sign language interpreter',
-  // 'sit down',
-  // 'stand up',
-  // 'take care',
-  // 'there was traffic jam',
-  // 'wait I am thinking',
-  // 'what are you doing',
-  // 'what is the problem',
-  // 'what is todays date',
-  // 'what is your father do',
-  // 'what is your job',
-  // 'what is your mobile number',
-  // 'what is your name',
-  // 'whats up',
-  // 'when is your interview',
-  // 'when we will go',
-  // 'where do you stay',
-  // 'where is the bathroom',
-  // 'where is the police station',
-  // 'you are wrong',
-  // 'address',
-  // 'agra',
-  // 'ahmedabad',
-  // 'all',
-  // 'april',
-  // 'assam',
-  // 'august',
-  // 'australia',
-  // 'badoda',
-  // 'banana',
-  // 'banaras',
-  // 'banglore',
-  // 'bihar',
-  // 'bihar',
-  // 'bridge',
-  // 'cat',
-  // 'chandigarh',
-  // 'chennai',
-  // 'christmas',
-  // 'church',
-  // 'clinic',
-  // 'coconut',
-  // 'crocodile',
-  // 'dasara',
-  // 'deaf',
-  // 'december',
-  // 'deer',
-  // 'delhi',
-  // 'dollar',
-  // 'duck',
-  // 'february',
-  // 'friday',
-  // 'fruits',
-  // 'glass',
-  // 'grapes',
-  // 'gujarat',
-  // 'hello',
-  // 'hindu',
-  // 'hyderabad',
-  // 'india',
-  // 'january',
-  // 'jesus',
-  // 'job',
-  // 'july',
-  // 'july',
-  // 'karnataka',
-  // 'kerala',
-  // 'krishna',
-  // 'litre',
-  // 'mango',
-  // 'may',
-  // 'mile',
-  // 'monday',
-  // 'mumbai',
-  // 'museum',
-  // 'muslim',
-  // 'nagpur',
-  // 'october',
-  // 'orange',
-  // 'pakistan',
-  // 'pass',
-  // 'police station',
-  // 'post office',
-  // 'pune',
-  // 'punjab',
-  // 'rajasthan',
-  // 'ram',
-  // 'restaurant',
-  // 'saturday',
-  // 'september',
-  // 'shop',
-  // 'sleep',
-  // 'southafrica',
-  // 'story',
-  // 'sunday',
-  // 'tamil nadu',
-  // 'temperature',
-  // 'temple',
-  // 'thursday',
-  // 'toilet',
-  // 'tomato',
-  // 'town',
-  // 'tuesday',
-  // 'usa',
-  // 'village',
-  // 'voice',
-  // 'wednesday',
-  // 'weight',
-  // 'please wait for sometime',
-  // 'what is your mobile number',
-  // 'what are you doing',
-  // 'are you busy',
+
+  {
+    name: "be careful",
+    value: require("./assets/images/be-careful.gif"),
+  },
+
+  {
+    name: "did you finish homework",
+    value: require("./assets/images/did-you-finish-homework.gif"),
+  },
+
+  {
+    name: "do you have money",
+    value: require("./assets/images/do-you-have-money.gif"),
+  },
+  {
+    name: "do you want something to drink",
+    value: require("./assets/images/do-you-want-something-to-drink.gif"),
+  },
+
+  {
+    name: "do you watch TV",
+    value: require("./assets/images/do-you-watch-tv.gif"),
+  },
+  {
+    name: "dont worry",
+    value: require("./assets/images/dont-worry.gif"),
+  },
+  {
+    name: "flower is beautiful",
+    value: require("./assets/images/flower-is-beautiful.gif"),
+  },
+  {
+    name: "good afternoon",
+    value: require("./assets/images/good-afternoon.gif"),
+  },
+
+  {
+    name: "good morning",
+    value: require("./assets/images/good-morning.gif"),
+  },
+
+  {
+    name: "good question",
+    value: require("./assets/images/good-question.gif"),
+  },
+
+  {
+    name: "i am a clerk",
+    value: require("./assets/images/i-am-a-clerk.gif"),
+  },
+
+  {
+    name: "i am fine",
+    value: require("./assets/images/i-am-fine.gif"),
+  },
+  {
+    name: "i am sorry",
+    value: require("./assets/images/i-am-sorry.gif"),
+  },
+  {
+    name: "i am thinking",
+    value: require("./assets/images/i-am-thinking.gif"),
+  },
+  {
+    name: "i am tired",
+    value: require("./assets/images/i-am-tired.gif"),
+  },
+
+  {
+    name: "i go to a theatre",
+    value: require("./assets/images/i-go-to-a-theatre.gif"),
+  },
+  {
+    name: "i love to shop",
+    value: require("./assets/images/i-love-to-shop.gif"),
+  },
+  {
+    name: "i had to say something but I forgot",
+    value: require("./assets/images/i-had-to-say-something-but-i-forgot.gif"),
+  },
+
+  {
+    name: "i like pink colour",
+    value: require("./assets/images/i-like-pink-colour.gif"),
+  },
+
+  {
+    name: "lets go for lunch",
+    value: require("./assets/images/lets-go-for-lunch.gif"),
+  },
+
+  {
+    name: "nice to meet you",
+    value: require("./assets/images/nice-to-meet-you.gif"),
+  },
+
+  {
+    name: "open the door",
+    value: require("./assets/images/open-the-door.gif"),
+  },
+  {
+    name: "please call me later",
+    value: require("./assets/images/please-call-me-later.gif"),
+  },
+
+  {
+    name: "please wait for sometime",
+    value: require("./assets/images/please-wait-for-sometime.gif"),
+  },
+  {
+    name: "shall I help you",
+    value: require("./assets/images/shall-i-help-you.gif"),
+  },
+  {
+    name: "shall we go together tommorow",
+    value: require("./assets/images/shall-we-go-together-tommorow.gif"),
+  },
+  {
+    name: "sign language interpreter",
+    value: require("./assets/images/sign-language-interpreter.gif"),
+  },
+  {
+    name: "sit down",
+    value: require("./assets/images/sit-down.gif"),
+  },
+  {
+    name: "stand up",
+    value: require("./assets/images/stand-up.gif"),
+  },
+  {
+    name: "take care",
+    value: require("./assets/images/take-care.gif"),
+  },
+  {
+    name: "there was traffic jam",
+    value: require("./assets/images/there-was-traffic-jam.gif"),
+  },
+
+  {
+    name: "what are you doing",
+    value: require("./assets/images/what-are-you-doing.gif"),
+  },
+  {
+    name: "what is the problem",
+    value: require("./assets/images/what-is-the-problem.gif"),
+  },
+  {
+    name: "what is todays date",
+    value: require("./assets/images/what-is-todays-date.gif"),
+  },
+  {
+    name: "what is your father do",
+    value: require("./assets/images/what-is-your-father-do.gif"),
+  },
+
+  {
+    name: "what is your mobile number",
+    value: require("./assets/images/what-is-your-mobile-number.gif"),
+  },
+  {
+    name: "what is your name",
+    value: require("./assets/images/what-is-your-name.gif"),
+  },
+  {
+    name: "whats up",
+    value: require("./assets/images/whats-up.gif"),
+  },
+
+  {
+    name: "where is the bathroom",
+    value: require("./assets/images/where-is-the-bathroom.gif"),
+  },
+  {
+    name: "where is the police station",
+    value: require("./assets/images/where-is-the-police-station.gif"),
+  },
+  {
+    name: "you are wrong",
+    value: require("./assets/images/you-are-wrong.gif"),
+  },
+
+  {
+    name: "ahmedabad",
+    value: require("./assets/images/ahmedabad.gif"),
+  },
+  {
+    name: "all",
+    value: require("./assets/images/all.gif"),
+  },
+
+  {
+    name: "assam",
+    value: require("./assets/images/assam.gif"),
+  },
+  {
+    name: "august",
+    value: require("./assets/images/august.gif"),
+  },
+
+  {
+    name: "banana",
+    value: require("./assets/images/banana.gif"),
+  },
+  {
+    name: "banaras",
+    value: require("./assets/images/banaras.gif"),
+  },
+
+  {
+    name: "banglore",
+    value: require("./assets/images/banglore.gif"),
+  },
+
+  {
+    name: "bridge",
+    value: require("./assets/images/bridge.gif"),
+  },
+  {
+    name: "cat",
+    value: require("./assets/images/cat.gif"),
+  },
+
+  {
+    name: "christmas",
+    value: require("./assets/images/christmas.gif"),
+  },
+  {
+    name: "church",
+    value: require("./assets/images/church.gif"),
+  },
+  {
+    name: "clinic",
+    value: require("./assets/images/clinic.gif"),
+  },
+
+  {
+    name: "dasara",
+    value: require("./assets/images/dasara.gif"),
+  },
+
+  {
+    name: "december",
+
+    value: require("./assets/images/december.gif"),
+  },
+
+  {
+    name: "grapes",
+    value: require("./assets/images/grapes.gif"),
+  },
+
+  {
+    name: "hello",
+    value: require("./assets/images/hello.gif"),
+  },
+  {
+    name: "hindu",
+    value: require("./assets/images/hindu.gif"),
+  },
+  {
+    name: "hyderabad",
+    value: require("./assets/images/hyderabad.gif"),
+  },
+
+  {
+    name: "job",
+    value: require("./assets/images/job.gif"),
+  },
+  {
+    name: "july",
+    value: require("./assets/images/july.gif"),
+  },
+  {
+    name: "june",
+    value: require("./assets/images/june.gif"),
+  },
+  {
+    name: "karnataka",
+    value: require("./assets/images/karnataka.gif"),
+  },
+  {
+    name: "kerala",
+    value: require("./assets/images/kerala.gif"),
+  },
+  {
+    name: "krishna",
+    value: require("./assets/images/krishna.gif"),
+  },
+
+  {
+    name: "mango",
+    value: require("./assets/images/mango.gif"),
+  },
+  {
+    name: "may",
+    value: require("./assets/images/may.gif"),
+  },
+  {
+    name: "mile",
+    value: require("./assets/images/mile.gif"),
+  },
+
+  {
+    name: "mumbai",
+    value: require("./assets/images/mumbai.gif"),
+  },
+
+  {
+    name: "nagpur",
+    value: require("./assets/images/nagpur.gif"),
+  },
+
+  {
+    name: "pakistan",
+    value: require("./assets/images/pakistan.gif"),
+  },
+
+  {
+    name: "pune",
+    value: require("./assets/images/pune.gif"),
+  },
+  {
+    name: "punjab",
+    value: require("./assets/images/punjab.gif"),
+  },
+
+  {
+    name: "saturday",
+    value: require("./assets/images/saturday.gif"),
+  },
+
+  {
+    name: "shop",
+    value: require("./assets/images/shop.gif"),
+  },
+
+  {
+    name: "temple",
+    value: require("./assets/images/temple.gif"),
+  },
+
+  {
+    name: "thursday",
+    value: require("./assets/images/thursday.gif"),
+  },
+
+  {
+    name: "toilet",
+    value: require("./assets/images/toilet.gif"),
+  },
+
+  {
+    name: "tomato",
+    value: require("./assets/images/tomato.gif"),
+  },
+
+  {
+    name: "tuesday",
+    value: require("./assets/images/tuesday.gif"),
+  },
+
+  {
+    name: "usa",
+    value: require("./assets/images/usa.gif"),
+  },
+
+  {
+    name: "village",
+    value: require("./assets/images/village.gif"),
+  },
+
+  {
+    name: "wednesday",
+    value: require("./assets/images/wednesday.gif"),
+  },
 ];
 
 export const arr = [
@@ -206,30 +422,4 @@ export const arr = [
   { name: "x", value: require("./assets/letters/x.jpg") },
   { name: "y", value: require("./assets/letters/y.jpg") },
   { name: "z", value: require("./assets/letters/z.jpg") },
-  // 'a',
-  // 'b',
-  // 'c',
-  // 'd',
-  // 'e',
-  // 'f',
-  // 'g',
-  // 'h',
-  // 'i',
-  // 'j',
-  // 'k',
-  // 'l',
-  // 'm',
-  // 'n',
-  // 'o',
-  // 'p',
-  // 'q',
-  // 'r',
-  // 's',
-  // 't',
-  // 'u',
-  // 'v',
-  // 'w',
-  // 'x',
-  // 'y',
-  // 'z',
 ];
