@@ -1,16 +1,20 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import Offline from "./components/Offline";
 
 export default function App() {
-  return <Offline />;
+  return (
+    <ScrollView style={styles.container}>
+      <Offline />
+    </ScrollView>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "#EBE5FF",
+    // alignItems: "center",
+    // justifyContent: "center",
   },
 });

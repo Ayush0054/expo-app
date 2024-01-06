@@ -39,7 +39,7 @@ export const isl_gif = [
 
   {
     name: "do you watch TV",
-    value: require("./assets/images/do-you-watch-tv.gif"),
+    value: require("./assets/images/do-you-watch-TV.gif"),
   },
   {
     name: "dont worry",
@@ -96,7 +96,7 @@ export const isl_gif = [
   },
   {
     name: "i had to say something but I forgot",
-    value: require("./assets/images/i-had-to-say-something-but-i-forgot.gif"),
+    value: require("./assets/images/i-had-to-say-something-but-I-forgot.gif"),
   },
 
   {
@@ -129,7 +129,7 @@ export const isl_gif = [
   },
   {
     name: "shall I help you",
-    value: require("./assets/images/shall-i-help-you.gif"),
+    value: require("./assets/images/shall-I-help-you.gif"),
   },
   {
     name: "shall we go together tommorow",
@@ -166,7 +166,7 @@ export const isl_gif = [
   },
   {
     name: "what is todays date",
-    value: require("./assets/images/what-is-todays-date.gif"),
+    value: require("./assets/images/what-is-today's-date.gif"),
   },
   {
     name: "what is your father do",
@@ -201,7 +201,8 @@ export const isl_gif = [
 
   {
     name: "ahmedabad",
-    value: require("./assets/images/ahmedabad.gif"),
+    // assets/images/ahemdabad.gif
+    value: require("./assets/images/ahemdabad.gif"),
   },
   {
     name: "all",
@@ -250,7 +251,7 @@ export const isl_gif = [
   },
   {
     name: "clinic",
-    value: require("./assets/images/clinic.gif"),
+    value: require("./assets/images/cilinic.gif"),
   },
 
   {
