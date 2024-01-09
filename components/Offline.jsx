@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios";
+global.Buffer = require("buffer").Buffer;
+import React, { useEffect, useState } from "react";
 import { Audio } from "expo-av";
 import {
   View,
@@ -12,10 +12,33 @@ import {
 } from "react-native";
 import { arr, isl_gif } from "../textImage";
 import * as FileSystem from "expo-file-system";
+import FormData from "form-data";
 const Offline = () => {
   const [textInput, setTextInput] = useState("");
   const [imagePath1, setImagePath1] = useState([]);
   const [recording, setRecording] = useState(null);
+  const [audioPermission, setAudiPermission] = useState(null);
+  const [recordingStatus, setRecordingStatus] = useState("idle");
+  useEffect(() => {
+    const audioCheck = async () => {
+      await Audio.requestPermissionsAsync()
+        .then((res) => {
+          console.log(res.granted);
+          setAudiPermission(res.granted);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+
+    audioCheck();
+
+    return () => {
+      if (recording) {
+        stopRecording();
+      }
+    };
+  }, []);
   const handleTextInput = (text) => {
     console.log("text", text);
     setTextInput(text);
@@ -32,74 +55,117 @@ const Offline = () => {
     }
     return imagePaths;
   };
-  const handleAudioRecording = async () => {
-    // Code to start recording and get audio data
-    const audioData = await recordAudio(); // Implement this function
-
-    // Send audio data to the backend
-    fetch("http://localhost:5000/speech-to-text", {
-      method: "POST",
-      body: JSON.stringify({ audioData: audioData }),
-      // headers: { "Content-Type": "application/json" },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setTextInput(data.text); // Update the text input with the transcribed text
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
 
   const startRecording = async () => {
     try {
       // Request permission to record audio
-      const permission = await Audio.requestPermissionsAsync();
-      if (permission.status === "granted") {
-        // Setting up audio mode
+      if (audioPermission) {
         await Audio.setAudioModeAsync({
           allowsRecordingIOS: true,
           playsInSilentModeIOS: true,
         });
-
-        // Starting recording
-        const { recording } = await Audio.Recording.createAsync(
-          Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY
-        );
-        setRecording(recording);
-      } else {
-        console.log("Permission to record not granted");
       }
+      Audio.IOSOutputFormat;
+      const newRecording = new Audio.Recording();
+
+      const recordingOptions = {
+        ios: {
+          extension: ".mp4", // Specify the audio file extension,
+          audioQuality: Audio.RECORDING_OPTION_IOS_AUDIO_QUALITY_HIGH, // Specify the audio quality
+        },
+        android: {
+          extension: ".mp4", // Specify the audio file extension,
+        },
+      };
+      console.log("Starting Recording");
+      await newRecording.prepareToRecordAsync(recordingOptions);
+
+      await newRecording.startAsync();
+      setRecording(newRecording);
+      setRecordingStatus("recording");
     } catch (error) {
       console.error("Failed to start recording", error);
     }
   };
-
-  const stopRecording = async () => {
-    setRecording(undefined);
-    await recording.stopAndUnloadAsync();
-    const uri = recording.getURI();
-    console.log("Recording stopped and stored at", uri);
-
-    // Convert the recording to a base64 string and send it to the server
-    FileSystem.readAsStringAsync(uri, {
-      encoding: FileSystem.EncodingType.Base64,
-    })
-      .then((base64Audio) => sendAudioToServer(base64Audio))
-      .catch((error) => console.error("Error reading audio file", error));
-  };
-
-  const sendAudioToServer = async (base64Audio) => {
+  async function stopRecording() {
     try {
-      const response = await axios.post("http://localhost:5000/speechText", {
-        audioData: base64Audio, // Send the base64 audio data directly
-      });
-      console.log(response.data);
-      setTextInput(response.data.text); // Update the text input with the transcribed text
+      if (recordingStatus == "recording") {
+        console.log("Stopping recording..");
+        await recording.stopAndUnloadAsync();
+        const recordingUri = recording.getURI();
+        console.log("Recording stopped and stored at URI", recordingUri);
+
+        // Calls openai translations endpoint
+        try {
+          const formData = new FormData();
+          // FileSystem.readAsStringAsync(recordingUri, {
+          //   encoding: FileSystem.EncodingType.Base64,
+          // })
+          //   .then((content) => {
+          //     formData.append("file", content, "test.mp4", {
+          //       type: "audio/mp4",
+          //     });
+          //     // console.log('File content:', content);
+          //   })
+          //   .catch((error) => {
+          //     console.error("Error reading file:", error);
+          //   });
+          // const base64String = await FileSystem.readAsStringAsync(
+          //   recordingUri,
+          //   { encoding: FileSystem.EncodingType.Base64 }
+          // );
+          // const buffer = Buffer.from(base64String, "base64");
+          // const blob = new Blob([buffer]);
+          const file2 = Buffer.from(
+            await FileSystem.readAsStringAsync(recordingUri, {
+              encoding: FileSystem.EncodingType.Base64,
+            })
+            // "string_encoded_as_base_64",
+            // "base64"
+          );
+          const blob = new Blob([file2]);
+          const file = new File([blob], "test.mp4", { type: "audio/mp4" });
+          // const fileUri = recordingUri.replace("file://", "");
+          // const file = {
+          //   uri: fileUri,
+          //   name: "recording.mp4",
+          //   type: "audio/mp4",
+          // };
+          formData.append("model", "whisper-1");
+          formData.append("file", file);
+          formData.append("response_format", "text");
+          console.log(file);
+          const response = await fetch(
+            "https://api.openai.com/v1/audio/transcriptions",
+            {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+                // "Content-Type": "multipart/form-data",
+              },
+              body: formData,
+            }
+          );
+          const body = await response.text();
+          console.log(body);
+        } catch (error) {
+          console.error(error);
+        }
+        setRecording(null);
+        setRecordingStatus("idle");
+      }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Failed to stop recording", error);
     }
-  };
+  }
+  // Starts/Stops Recording;
+  async function handleRecordButtonPress() {
+    if (recording) {
+      await stopRecording(recording);
+    } else {
+      await startRecording();
+    }
+  }
   const handleSubmit = () => {
     if (
       textInput === "goodbye" ||
@@ -120,20 +186,24 @@ const Offline = () => {
   };
 
   return (
-    <View style={{ marginTop: 40, padding: 20 }}>
-      <Text style={styles.headingText}>Disability Bridge</Text>
-      <TouchableOpacity onPress={startRecording} style={styles.button}>
+    <View style={styles.container}>
+      <TouchableOpacity onPress={handleRecordButtonPress} style={styles.button}>
         <Text>Start Recording</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={stopRecording} style={styles.button}>
-        <Text>Stop Recording</Text>
-      </TouchableOpacity>
+      <Text
+        style={{
+          color: recordingStatus == "recording" ? "green" : "red",
+          marginLeft: 4,
+          fontWeight: "800",
+        }}
+      >{`${recordingStatus}`}</Text>
       <TextInput
         value={textInput}
         onChangeText={handleTextInput}
         placeholder="Enter text"
         style={styles.input}
       />
+
       <TouchableOpacity onPress={handleSubmit} style={styles.button}>
         <Text>Submit</Text>
       </TouchableOpacity>
@@ -185,5 +255,11 @@ const styles = StyleSheet.create({
     margin: 12,
     borderWidth: 1,
     padding: 10,
+  },
+  container: {
+    flex: 1,
+    backgroundColor: "#EBE5FF",
+    paddingTop: 40,
+    padding: 20,
   },
 });
